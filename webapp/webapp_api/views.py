@@ -40,10 +40,10 @@ def api_calculator(request, method_calculator):
             return JsonResponse({"answer": result})
         elif method_calculator == 'divide':
             if b == 0:
-                return HttpResponseBadRequest(json.dumps({"error": "Делить на ноль сегодня нельзя :("}),
+                return HttpResponseBadRequest(json.dumps({"error": "Деление на ноль запрещено"}),
                                               content_type="application/json")
             else:
                 result = a / b
                 return JsonResponse({"answer": result})
     else:
-        return JsonResponse({"error": "A и B должны быть числами"}, status=400)
+        return JsonResponse({"error": "A и B должны быть числовыми значениями"}, status=400)
